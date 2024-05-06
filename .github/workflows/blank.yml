@@ -1,24 +1,30 @@
 name: CI
-
+ 
 on:
- push:
-  branches: ["main"]
-pull_request:
-  branches: ["main"]
-
- workflow_dispatch;
-
+  push:
+    branches: [ main ]
+ 
 jobs:
- build:
-  runs-on: ubuntu-latest
-
-  steps:
-
-    - uses: actions/checkout@v4
-    - name: Run a one-line script
-      run: echo Hello,world!
-
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Set up job
+        # Add any setup steps here
+ 
+      - name: Checkout code
+        uses: actions/checkout@v2
+ 
+      - name: Run a one-line script
+        run: echo "This is a one-line script"
+ 
+      - name: Run a multi-line script
+        run: |
+          echo "This is a multi-line script"
+          echo "It has multiple commands"
+ 
+      - name: Post Run actions/checkout@v4
+        # Add any post-processing steps here
+ 
+      - name: Complete job
+        # Add any final steps here
